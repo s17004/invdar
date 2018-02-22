@@ -221,7 +221,7 @@ const ASSETS = {
 // メイン処理
 phina.main(function () {
     const app = GameApp({
-        startLabel: 'main',
+        startLabel: '',
         assets: ASSETS,
         domElement: document.getElementById('display'),
         width: 800,
