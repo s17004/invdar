@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #004;
+}
+
+canvas#display {
+    width: 800px;
+    height: 500px;
+    background-color: black;
+    margin: 2em auto;
+    display: block;
+}
+span#label {
+
+    font-size: 30px;
+    color: white;
+    background-color: #004;
+}
+div#score {
+    display: inline-block;
+    background-color: #004;
+    color: white;
+    font-weight: bold;
+    min-width: 10em;
+    font-size: 30px;
+}
