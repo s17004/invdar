@@ -175,6 +175,10 @@ phina.define('EnemyGroup', {
                     bullet = null;
                     document.getElementById('score').innerHTML = score += 1;
                     enemy.remove();
+                    if(score == 40){
+                        alert("ゲームクリア!!リロードしてください");
+                    }
+
                 }
             });
         }
@@ -191,7 +195,6 @@ phina.define('EnemyGroup', {
         }
     }
 });
-
 
 // アセット
 const ASSETS = {
@@ -219,9 +222,9 @@ const ASSETS = {
 };
 
 // メイン処理
-phina.main(function () {
+phina.main(function (main) {
     const app = GameApp({
-        startLabel: '',
+        startLabel: 'main',
         assets: ASSETS,
         domElement: document.getElementById('display'),
         width: 800,
