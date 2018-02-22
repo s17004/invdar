@@ -6,7 +6,7 @@ canvas#display {
     width: 800px;
     height: 600px;
     background-color: #004;
-    margin: 0.5em auto;
+    margin: 4px auto;
     display: block;
   }
 section#game_display{
@@ -22,9 +22,8 @@ div#score{
     font-weight: bold;
     min-width: 10em;
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 1px;
     }
 span#label{
     color: white;
-
 }
