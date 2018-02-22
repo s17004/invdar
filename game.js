@@ -5,7 +5,8 @@ phina.globalize();
 const PLAYER_POSITION_Y = 550;  //自機の縦位置
 const PLAYER_DEFAULT_SPEED = 10; //自機の移動スピード
 const BULLET_DEFAULT_SPEED = 50; //自機が発射する弾のスピード
-score = 0;
+var MOVE_A =15;
+var score = 0;
 
 // MainScene クラスを定義
 phina.define('MainScene', {
@@ -99,8 +100,8 @@ phina.define('Bullet', {
     superClass: 'Shape',
     init: function (option) {
         this.superInit({
-            width: 2,
-            height: 10,
+            width: 5,
+            height: 50,
             padding: 0,
             backgroundColor: '#ddd',
             x: option.x,
@@ -115,11 +116,11 @@ phina.define('Bullet', {
             this.flare('hit');
         }
     },
-
     onhit: function () {
         this.remove();
         this.sleep();
     }
+
 });
 
 // 敵クラスを作る
@@ -177,8 +178,20 @@ phina.define('EnemyGroup', {
                 }
             });
         }
+
+        if(app.frame % 15 == 0){
+            this.move();
+        }
+    },
+    move: function () {
+        this.x += MOVE_A;
+        if (this.left < 10 || 230 < this.right){
+            this.bottom += 20;
+            MOVE_A *=-1;
+        }
     }
 });
+
 
 // アセット
 const ASSETS = {
@@ -189,7 +202,7 @@ const ASSETS = {
     spritesheet: {
         'enemy': {
             'frame': {
-                'width': 59,
+                'width': 59, //37?
                 'height': 59,
                 'cols': 2,
                 'rows': 1
